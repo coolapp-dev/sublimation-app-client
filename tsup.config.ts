@@ -1,37 +1,22 @@
+import type { Options } from "tsup";
 
-// import { defineConfig } from "tsup";
-// import tsconfig from "./tsconfig.json";
+// const config: Options = {
+// 	entry: ["src/index.ts"],
+// 	dts: true,
+// 	sourcemap: true,
+// 	format: ["iife", "cjs", "esm"],
+// };
 
-// export default defineConfig((options)=>({
-//   entry: [
-//     "src/index.ts",
-//   ],
-//   dts: true,
-//   outDir:"dist",
-//   format: ["esm", "cjs"],
-//   name: "sublimation-app-client",
-//   splitting: false,
-//   outExtension({ format }) {
-//     return {
-//       js: `.${format}.js`,
-//     };
-//   },
-//   sourcemap: true,
-//   clean: true,
-//   target: tsconfig.compilerOptions.target as "es2016",
-//   minify: false,
-//   // minify: !options.watch == Conditional config ==
-// }));
+// export default config;
 
+import { defineConfig } from 'tsup'
 
-
-import type { Options } from 'tsup'
-
-const config: Options = {
-    entry: ['src/index.ts'],
-    dts: true,
-    sourcemap: true,
-    format: ['iife', 'cjs', 'esm'],
-  }
-
-export default config
+export default defineConfig({
+  target: 'es2020',
+  format: ['cjs', 'esm'],
+  splitting: true,
+  minify: true,
+  sourcemap: true,
+  clean: true,
+  dts: true
+})
